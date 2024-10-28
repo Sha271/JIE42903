@@ -16,7 +16,7 @@ MUT_RATE = 0.2
 #TARGET: Our goal.
 #TARGET = 'Shafiqah'
 TARGET = st.text_input("Enter your name", "Sha")
-TARGET = st.text_input("Enter your mutation rate", "Sha")
+TARGET = st.float_input("Enter your mutation rate", "0.10")
 
 #GENES: Options from which our population would be created.
 GENES = ' abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
