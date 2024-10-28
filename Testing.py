@@ -5,7 +5,7 @@ st.set_page_config(
     page_title="Genetic Algorithm"
 )
 
-st.header("Genetic Algorithm", divider="purple")
+st.header("Genetic Algorithm", divider="grey")
 
 #POP_SIZE: Number of Chromosomes in our list.
 POP_SIZE = 500
@@ -16,7 +16,7 @@ MUT_RATE = 0.2
 #TARGET: Our goal.
 #TARGET = 'Shafiqah'
 TARGET = st.text_input("Enter your name", "Sha")
-number = st.number_input("Insert a number")
+TARGET = st.number_input("Insert a number")
 #st.write("The current number is ", number)
 
 #GENES: Options from which our population would be created.
