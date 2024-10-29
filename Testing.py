@@ -17,7 +17,7 @@ MUT_RATE = 0.2
 #TARGET = 'Shafiqah'
 TARGET = st.text_input("Enter your name", "Sha")
 MUT_RATE = st.number_input("Insert a number")
-st.button("Calculate"):
+st.button("Calculate")
 
 #GENES: Options from which our population would be created.
 GENES = ' abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
