@@ -8,52 +8,57 @@ import pandas as pd
 import seaborn as sns
 import streamlit as st
 
-# Interactive Python Code for Coordinate and City Name Input
+# Collect city names and their coordinates from user input
+cities_names = []
+x = []
+y = []
 
-# Exercise: Adding Coordinates and City Names
-print("Exercise: Coordinate and City Name Input")
+print("Enter city names and their coordinates. Type 'done' to finish.")
 
-# Initialize an empty dictionary to store city names with their coordinates
-city_coordinates = {}
-
-# Instructions
-print("You'll be prompted to enter coordinates (x, y) and a city name.")
-print("Enter 'done' as the city name when you've finished adding entries.\n")
-
-# Collecting coordinate and city name information from the user
 while True:
-    city_name = input("Enter city name (or type 'done' to finish): ")
+    city_name = input("Enter city name (or 'done' to finish): ")
     if city_name.lower() == 'done':
         break
     try:
-        x = float(input(f"Enter x-coordinate for {city_name}: "))
-        y = float(input(f"Enter y-coordinate for {city_name}: "))
-        city_coordinates[city_name] = (x, y)
-        print(f"Added {city_name} with coordinates ({x}, {y}).\n")
+        x_coord = float(input(f"Enter x-coordinate for {city_name}: "))
+        y_coord = float(input(f"Enter y-coordinate for {city_name}: "))
+        cities_names.append(city_name)
+        x.append(x_coord)
+        y.append(y_coord)
+        print(f"Added {city_name} at ({x_coord}, {y_coord})")
     except ValueError:
         print("Invalid input. Please enter numeric values for coordinates.")
 
-# Display the final dictionary of cities with coordinates
-print("\nFinal list of city coordinates:")
-for city, coords in city_coordinates.items():
-    print(f"{city}: Coordinates {coords}")
-print("\n")
+# Create the city coordinates dictionary
+city_coords = dict(zip(cities_names, zip(x, y)))
 
-# Additional Functionality (Optional):
-# Prompt to update a city's coordinates
-update_city = input("Would you like to update coordinates for a city? Enter city name or 'no': ")
-if update_city in city_coordinates:
-    try:
-        new_x = float(input(f"Enter new x-coordinate for {update_city}: "))
-        new_y = float(input(f"Enter new y-coordinate for {update_city}: "))
-        city_coordinates[update_city] = (new_x, new_y)
-        print(f"Updated {update_city} coordinates to ({new_x}, {new_y}).")
-    except ValueError:
-        print("Invalid input. Update failed.")
-elif update_city.lower() != 'no':
-    print(f"City {update_city} not found.")
+# Sample settings for other parameters
+n_population = 250
+crossover_per = 0.8
+mutation_per = 0.2
+n_generations = 200
 
-# Final display of updated dictionary
-print("\nUpdated city coordinates:")
-for city, coords in city_coordinates.items():
-    print(f"{city}: Coordinates {coords}")
+# Pastel Palette for plotting
+colors = sns.color_palette("pastel", len(cities_names))
+
+# City Icons (adjust as needed if you have fewer/more cities)
+city_icons = {
+    "Gliwice": "♕", "Cairo": "♖", "Rome": "♗", "Krakow": "♘",
+    "Paris": "♙", "Alexandria": "♔", "Berlin": "♚", "Tokyo": "♛",
+    "Rio": "♜", "Budapest": "♝"
+}
+
+# Your existing plotting code and genetic algorithm functions go here
+
+# Example of using the collected data for plotting
+fig, ax = plt.subplots()
+
+for i, (city, (city_x, city_y)) in enumerate(city_coords.items()):
+    color = colors[i % len(colors)]
+    icon = city_icons.get(city, "●")  # Use ● if no icon is defined for the city
+    ax.scatter(city_x, city_y, c=[color], s=1200, zorder=2)
+    ax.annotate(icon, (city_x, city_y), fontsize=40, ha='center', va='center', zorder=3)
+    ax.annotate(city, (city_x, city_y), fontsize=12, ha='center', va='bottom', xytext=(0, -30), textcoords='offset points')
+
+# Rest of the code (e.g., connecting cities and displaying plot in Streamlit) continues here...
+st.pyplot(fig)
