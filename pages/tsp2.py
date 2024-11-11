@@ -209,7 +209,7 @@ if st.button("Button"):
   total_dist_all_individuals = []
   for i in range(0, n_population):
     total_dist_all_individuals.append(total_dist_individual(best_mixed_offspring[i]))
- index_minimum = np.argmin(total_dist_all_individuals)
+    index_minimum = np.argmin(total_dist_all_individuals)
   
   minimum_distance = min(total_dist_all_individuals)
   st.write("Minimum Distance : ", minimum_distance)
