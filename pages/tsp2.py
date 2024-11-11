@@ -81,7 +81,7 @@ if st.button("Button"):
     city_2_coords = city_coords[city_2]
     return np.sqrt(np.sum((np.array(city_1_coords) - np.array(city_2_coords))**2))
   
- def total_dist_individual(individual):
+  def total_dist_individual(individual):
     total_dist = 0
     for i in range(0, len(individual)):
       if(i == len(individual) - 1):
@@ -89,7 +89,6 @@ if st.button("Button"):
       else:
         total_dist += dist_two_cities(individual[i], individual[i+1])
     return total_dist
-
     
  #fitness probablity function
   def fitness_prob(population):
