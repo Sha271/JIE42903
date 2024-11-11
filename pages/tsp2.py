@@ -141,7 +141,7 @@ if st.button("Button"):
   
     parents_list = []
     for i in range(0, int(crossover_per * n_population)):
-parents_list.append(roulette_wheel(population, fitness_probs))
+      parents_list.append(roulette_wheel(population, fitness_probs))
   
     offspring_list = []
     for i in range(0,len(parents_list), 2):
