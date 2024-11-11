@@ -23,10 +23,10 @@ for i in range(10):
   cities_names.append(city_name)
 
 city_x = col2.number_input(f"X Coordinate for City {i+1}", min_value=1, max_value=10, step=1)
-  x.append(city_x)
+x.append(city_x)
 
-  city_y = col3.number_input(f"Y Coordinate for City {i+1}", min_value=1, max_value=10, step=1)
-  y.append(city_y)
+city_y = col3.number_input(f"Y Coordinate for City {i+1}", min_value=1, max_value=10, step=1)
+y.append(city_y)
 
 # Code untuk bila tekan button
 if st.button("Button"):
