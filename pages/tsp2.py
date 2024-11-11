@@ -231,7 +231,7 @@ if st.button("Button"):
   
   fig, ax = plt.subplots()
   ax.plot(x_shortest, y_shortest, '--go', label='Best Route', linewidth=2.5)
- plt.legend()
+  plt.legend()
   
   for i in range(len(x)):
     for j in range(i + 1, len(x)):
