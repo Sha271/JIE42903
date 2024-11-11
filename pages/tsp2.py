@@ -64,15 +64,16 @@ if st.button("Button"):
   fig.set_size_inches(16, 12)
   st.pyplot(fig)
   
-  #population
+ #population
   def initial_population(cities_list, n_population = 250):
-   population_perms = []
-   possible_perms = list(permutations(cities_list))
-   random_ids = random.sample(range(0,len(possible_perms)), n_population)
+    population_perms = []
+    possible_perms = list(permutations(cities_list))
+    random_ids = random.sample(range(0,len(possible_perms)), n_population)
   
-  for i in random_ids:
+    for i in random_ids:
       population_perms.append(list(possible_perms[i]))
-   return population_perms
+  
+    return population_perms
   
   #distance between two cities
   def dist_two_cities(city_1, city_2):
