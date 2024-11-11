@@ -114,7 +114,8 @@ if st.button("Button"):
     cut = round(random.uniform(1, n_cities_cut))
     offspring_1 = []
     offspring_2 = []
- offspring_1 = parent_1[0:cut]
+    
+    offspring_1 = parent_1[0:cut]
     offspring_1 += [city for city in parent_2 if city not in offspring_1]
     
     offspring_2 = parent_2[0:cut]
