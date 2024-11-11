@@ -67,8 +67,8 @@ if st.button("Button"):
   #population
   def initial_population(cities_list, n_population = 250):
    population_perms = []
-    possible_perms = list(permutations(cities_list))
-    random_ids = random.sample(range(0,len(possible_perms)), n_population)
+   possible_perms = list(permutations(cities_list))
+   random_ids = random.sample(range(0,len(possible_perms)), n_population)
   
     for i in random_ids:
       population_perms.append(list(possible_perms[i]))
